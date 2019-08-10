@@ -101,6 +101,6 @@
     <PostBuildEvent>mkdir "$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(ProjectName)"
 del "$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(ProjectName)\$(TargetFileName)"
 xcopy /y "$(TargetPath)" "$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(ProjectName)"
-xcopy /y "$(ProjectDir)\Resources" "$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(TargetName)" /s /e</PostBuildEvent>
+xcopy /y "$(ProjectDir)\..\SunShaftsUnity\AssetBundles\WindowsResources" "$(LOCALAPPDATA)\Colossal Order\Cities_Skylines\Addons\Mods\$(TargetName)" /s /e</PostBuildEvent>
   </PropertyGroup>
 </Project>
