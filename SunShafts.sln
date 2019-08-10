@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunShaftsUnity", "SunShaftsUnity/Assembly-CSharp.csproj", "{5784498F-9A31-433A-A6BB-7AA60C1D7511}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunShaftsUnity", "SunShaftsUnity/Assembly-CSharp-Editor.csproj", "{A45B127C-30B2-E012-60A4-706BE1D4DFC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunShafts2", "SunShafts\SunShafts2.csproj", "{83B9BE51-632B-4073-A5B6-87ABB7177051}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5784498F-9A31-433A-A6BB-7AA60C1D7511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5784498F-9A31-433A-A6BB-7AA60C1D7511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5784498F-9A31-433A-A6BB-7AA60C1D7511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5784498F-9A31-433A-A6BB-7AA60C1D7511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A45B127C-30B2-E012-60A4-706BE1D4DFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A45B127C-30B2-E012-60A4-706BE1D4DFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A45B127C-30B2-E012-60A4-706BE1D4DFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A45B127C-30B2-E012-60A4-706BE1D4DFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83B9BE51-632B-4073-A5B6-87ABB7177051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83B9BE51-632B-4073-A5B6-87ABB7177051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83B9BE51-632B-4073-A5B6-87ABB7177051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83B9BE51-632B-4073-A5B6-87ABB7177051}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

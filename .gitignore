@@ -286,3 +286,9 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+#Unity
+SunShaftUnity/AssetBundles/
+SunShaftUnity/Library/
+SunShaftUnity/ProjectSettings/
+SunShaftUnity/Temp/

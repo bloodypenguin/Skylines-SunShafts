@@ -67,10 +67,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\AssetBundle\SimpleClear.shader" />
-    <None Include="Assets\AssetBundle\SimpleClear.shader.meta" />
-    <None Include="Assets\AssetBundle\SunShaftsComposite.shader" />
-    <None Include="Assets\AssetBundle\SunShaftsComposite.shader.meta" />
     <None Include="Resources\sunshaftsshaders" />
     <None Include="Resources\sunshaftsshaders.manifest" />
   </ItemGroup>
