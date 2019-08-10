@@ -288,7 +288,7 @@ __pycache__/
 *.xsd.cs
 
 #Unity
-SunShaftUnity/AssetBundles/
-SunShaftUnity/Library/
-SunShaftUnity/ProjectSettings/
-SunShaftUnity/Temp/
+SunShaftsUnity/AssetBundles
+SunShaftsUnity/Library
+SunShaftsUnity/ProjectSettings
+SunShaftsUnity/Temp
