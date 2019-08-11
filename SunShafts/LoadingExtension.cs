@@ -8,8 +8,8 @@ namespace SunShafts2
 {
     public class LoadingExtension : LoadingExtensionBase
     {
-        private Material sunShaftShaderMaterial = (Material) null;
-        private Material simpleClearShaderMaterial = (Material) null;
+        private Material sunShaftShaderMaterial;
+        private Material simpleClearShaderMaterial;
         private SunShaftsEffect sunShaftsEffect;
 
         public override void OnLevelLoaded(LoadMode mode)
@@ -21,30 +21,32 @@ namespace SunShafts2
             this.sunShaftsEffect.sunShaftsShader = this.sunShaftShaderMaterial.shader;
             this.sunShaftsEffect.sunTransform = new GameObject().transform;
             this.sunShaftsEffect.Init();
-            GameObject gameObject = GameObject.Find("ModControl");
-            if ((UnityEngine.Object) gameObject == (UnityEngine.Object) null)
+            var gameObject = GameObject.Find("ModControl");
+            if (gameObject == (UnityEngine.Object) null)
             {
                 gameObject = new GameObject("ModControl");
                 gameObject.AddComponent<ModControl>();
             }
-            gameObject.GetComponent("ModControl").SendMessage("addMod", (object) "SunShafts");
-            gameObject.GetComponent("ModControl").SendMessage("setAction", (object) new Action(this.OnModControlGUI));
-            gameObject.GetComponent("ModControl").SendMessage("setHeight", (object) 120f);
+
+            var modControl = gameObject.GetComponent<ModControl>();
+            modControl.SendMessage("addMod", (object) "SunShafts");
+            modControl.SendMessage("setAction", (object) new Action(this.OnModControlGUI));
+            modControl.SendMessage("setHeight", (object) 120f);
         }
 
-        void LoadShaders()
+        private void LoadShaders()
         {
-            string assetsUri = "file:///" + modPath.Replace("\\", "/") + "/sunshaftsshaders";
-            WWW www = new WWW(assetsUri);
-            AssetBundle assetBundle = www.assetBundle;
+            var assetsUri = "file:///" + modPath.Replace("\\", "/") + "/sunshaftsshaders";
+            var www = new WWW(assetsUri);
+            var assetBundle = www.assetBundle;
 
             CheckAssetBundle(assetBundle, assetsUri);
             ThrowPendingCheckErrors();
 
-            string sunShaftsCompositeAssetName = "Assets/AssetBundle/SunShaftsComposite.shader";
-            string simpleClearAssetName = "Assets/AssetBundle/SimpleClear.shader";
-            Shader sunShaftsCompositeShaderContent = assetBundle.LoadAsset(sunShaftsCompositeAssetName) as Shader;
-            Shader simpleClearShaderContent = assetBundle.LoadAsset(simpleClearAssetName) as Shader;
+            const string sunShaftsCompositeAssetName = "Assets/AssetBundle/SunShaftsComposite.shader";
+            const string simpleClearAssetName = "Assets/AssetBundle/SimpleClear.shader";
+            var sunShaftsCompositeShaderContent = assetBundle.LoadAsset(sunShaftsCompositeAssetName) as Shader;
+            var simpleClearShaderContent = assetBundle.LoadAsset(simpleClearAssetName) as Shader;
 
             CheckShader(sunShaftsCompositeShaderContent, assetBundle, sunShaftsCompositeAssetName);
             CheckShader(simpleClearShaderContent, assetBundle, simpleClearAssetName);
@@ -64,21 +66,11 @@ namespace SunShafts2
         private string checkErrorMessage = null;
 
 
-        static string modPath
-        {
-            get
-            {
-                if (cachedModPath == null)
-                {
-                    cachedModPath =
-                        PluginManager.instance.FindPluginInfo(Assembly.GetAssembly(typeof(Mod))).modPath;
-                }
+        static string modPath =>
+            cachedModPath ?? (cachedModPath =
+                PluginManager.instance.FindPluginInfo(Assembly.GetAssembly(typeof(Mod))).modPath);
 
-                return cachedModPath;
-            }
-        }
-
-        void HandleCheckError(string message)
+        private void HandleCheckError(string message)
         {
 #if (DEBUG)
             DebugOutputPanel.AddMessage(PluginManager.MessageType.Error, message);
@@ -93,7 +85,7 @@ namespace SunShafts2
             }
         }
 
-        void ThrowPendingCheckErrors()
+        private void ThrowPendingCheckErrors()
         {
             if (checkErrorMessage != null)
             {
@@ -101,7 +93,7 @@ namespace SunShafts2
             }
         }
 
-        void CheckAssetBundle(AssetBundle assetBundle, string assetsUri)
+        private void CheckAssetBundle(AssetBundle assetBundle, string assetsUri)
         {
             if (assetBundle == null)
             {
@@ -119,7 +111,7 @@ namespace SunShafts2
 #endif
         }
 
-        void CheckShader(Shader shader, string source)
+        private void CheckShader(Shader shader, string source)
         {
             if (shader == null)
             {
@@ -142,12 +134,12 @@ namespace SunShafts2
             }
         }
 
-        void CheckShader(Shader shader, AssetBundle assetBundle, string shaderAssetName)
+        private void CheckShader(Shader shader, AssetBundle assetBundle, string shaderAssetName)
         {
             CheckShader(shader, "from asset '" + shaderAssetName + "'");
         }
 
-        void CheckMaterial(Material material, string materialAssetName)
+        private void CheckMaterial(Material material, string materialAssetName)
         {
             if (material == null)
             {
